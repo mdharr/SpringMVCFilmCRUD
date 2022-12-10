@@ -22,6 +22,18 @@ public class FilmDaoImpl implements FilmDAO {
 	private static final String USER = "student";
 	private static final String PWD = "student";
 	
+	public FilmDaoImpl() {
+		  try {
+		      Class.forName("com.mysql.cj.jdbc.Driver");
+		    }
+		    catch (ClassNotFoundException e) {
+		      e.printStackTrace();
+		      System.err.println("Error loading MySQL Driver");
+		      throw new RuntimeException("Unable to load MySQL Driver class");
+	}
+	
+	}
+	
 	
 	@Override
 	public Film findFilmById(int filmId) throws SQLException {
