@@ -29,5 +29,16 @@
 			id="searchWord" name="searchWord">
 	<button>Submit</button>
 	</form>
+
+ 
+  <form action="createFilm.do" method="GET">
+		<label for="film">Add a Film:</label> 
+	<button>NEXT</button>
+	</form>
+
+
 </body>
+
+
+
 </html>

@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.film.data.FilmDAO;
 import com.skilldistillery.film.entities.Film;
@@ -27,8 +29,6 @@ public class FilmController {
 	//@RequestMapping(path = "searchFilmById.do",params = "ID", method = RequestMethod.GET)
     @GetMapping(path = "findFilmById.do",params = "filmID")
 	public ModelAndView findFilmById(Integer filmID) throws SQLException {
-		//logic goes here for mapping 
-	System.out.println("Reached this line *********** ");
 	ModelAndView mv = new ModelAndView();
 		Film f = filmDao.findFilmById(filmID);
 		mv.addObject("film", f);
@@ -38,8 +38,6 @@ public class FilmController {
 	}
     @GetMapping(path = "findFilmBySearchWord.do",params = "searchWord")
    	public ModelAndView findFilmBySearchWord(String searchWord) throws SQLException {
-   		//logic goes here for mapping 
-   	System.out.println("Reached this line *********** ");
    	ModelAndView mv = new ModelAndView();
    		List<Film> films = filmDao.findFilmsBySearchWord(searchWord);
    		mv.addObject("film", films);
@@ -47,6 +45,27 @@ public class FilmController {
    		
            return mv;
    	}
+    @GetMapping(path = "createFilm.do",params = "createFilm")
+   	public ModelAndView createFilm(Film f) throws SQLException {
+   	ModelAndView mv = new ModelAndView();
+   		Film film = filmDao.createFilm(f);
+   		mv.addObject("film", film);
+   		mv.setViewName("WEB-INF/views/createFilm.jsp");
+   		
+           return mv;
 }
-	
-
+}
+//    @RequestMapping(path = "createFilm.do", method = RequestMethod.POST)
+//    public String createFilm(Film f, RedirectAttributes redir) {
+//      filmDao.createFilm(f);
+//      redir.addFlashAttribute("film", f);
+//      return "redirect:filmAdded.do";
+//    }
+//      @RequestMapping("addedFilm.do")
+//      public ModelAndView filmAdded() {
+//        ModelAndView mv = new ModelAndView();
+//      
+//        mv.setViewName("WEB-INF/views/addedFilm.jsp");
+//        return mv;
+//}
+//}
