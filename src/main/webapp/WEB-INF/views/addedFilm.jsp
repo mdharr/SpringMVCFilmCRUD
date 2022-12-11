@@ -19,7 +19,7 @@
 <div style="margin-top: 20px; border-style: solid; background-color: #292929; border-color: white; padding: 10px; box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 20px;">
  <c:choose>
     <c:when test="${! empty film}">
-      <ul>
+      <ul style="list-style-type: square;">
       	<li>Film ID: ${film.id } </li>
         <li>Film Title: ${film.title}</li>
         <li>Film Description: ${film.description}</li>

@@ -19,8 +19,9 @@
 <div style="margin-top: 20px; border-style: solid; background-color: #292929; border-color: white; padding: 10px; box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 20px;">
 	<c:choose>
 		<c:when test="${! empty film}">
-			<ul>
+			<ul style="list-style-type: square;">
 				<c:forEach var="film" items="${film}">
+
 					<li>Film ID: ${film.id }</li>
 					<li>Film Title: ${film.title}</li>
 					<li>Film Description: ${film.description}</li>
@@ -38,6 +39,7 @@
 						<li>${actor.firstName } ${actor.lastName }</li>
 						</c:forEach>
        				 </ol>
+       				 <br>
 				</c:forEach>
 			</ul>
 		</c:when>

@@ -24,43 +24,43 @@
    	
 	<div style="margin-top: 10px;  background-color: #292929; border-color: white; padding: 10px; ">
     	<label for="title">Title:</label>
-    	<input type="text" name="title" placeholder="${film.title}" required>
+    	<input type="text" name="title" value="${film.title}" required>
     </div>
 	<div style="margin-top: 10px;  background-color: #292929; border-color: white; padding: 10px; ">
     	<label for="description">Description:</label>
-    	<input type="text" name="description" placeholder="${film.description}" required>
+    	<input type="text" name="description" value="${film.description}" required>
     </div>
 	<div style="margin-top: 10px;  background-color: #292929; border-color: white; padding: 10px; ">
     	<label for="releaseYear">Release Year:</label>
-    	<input type="number" name="releaseYear" placeholder="${film.releaseYear}" required>
+    	<input type="text" name="releaseYear" value="${film.releaseYear}" required>
     </div>
 	<div style="margin-top: 10px;  background-color: #292929; border-color: white; padding: 10px; ">
     	<label for="languageId">Language ID:</label>
-        <input type="number" name="languageId" placeholder="${film.languageId}">
+        <input type="text" name="languageId" value="${film.languageId}" required>
     </div>
 	<div style="margin-top: 10px;  background-color: #292929; border-color: white; padding: 10px; ">
         <label for="rentalDuration">Rental Duration:</label>
-        <input type="number" name="rentalDuration" placeholder="${film.rentalDuration}" required>
+        <input type="text" name="rentalDuration" value="${film.rentalDuration}" required>
     </div>
 	<div style="margin-top: 10px;  background-color: #292929; border-color: white; padding: 10px; ">
         <label for="rentalRate">Rental Rate:</label>
-        <input type="number" name="rentalRate" placeholder="${film.rentalRate}" required>
+        <input type="text" name="rentalRate" value="${film.rentalRate}" required>
     </div>
 	<div style="margin-top: 10px;  background-color: #292929; border-color: white; padding: 10px; ">
         <label for="length">Length:</label>
-        <input type="number" name="length" placeholder="${film.length}" required>
+        <input type="text" name="length" value="${film.length}" required>
     </div>
 	<div style="margin-top: 10px;  background-color: #292929; border-color: white; padding: 10px; ">
         <label for="replacementCost">Replacement Cost:</label>
-        <input type="number" name="replacementCost" placeholder="${film.replacementCost}" required>
+        <input type="text" name="replacementCost" value="${film.replacementCost}" required>
     </div>
 	<div style="margin-top: 10px;  background-color: #292929; border-color: white; padding: 10px; ">
         <label for="rating">Rating:</label>
-        <input type="text" name="rating" placeholder="${film.rating}" required>
+        <input type="text" name="rating" value="${film.rating}" required>
     </div>
 	<div style="margin-top: 10px;  background-color: #292929; border-color: white; padding: 10px; ">
         <label for="specialFeatures">Special Features:</label>
-        <input type="text" name="specialFeatures" placeholder="${film.specialFeatures}" required> 
+        <input type="text" name="specialFeatures" value="${film.specialFeatures}" required> 
     </div>
     <div style="margin-top: 10px;  background-color: #292929; border-color: white; padding: 10px;">
       <button style="margin-left: 10px; "type="submit" class="btn btn-outline-warning" type="submit">Submit</button>
