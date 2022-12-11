@@ -8,7 +8,8 @@
 <title>Added Film</title>
 </head>
 <body>
- <c:choose>
+<h2>Success</h2>
+<%--  <c:choose>
     <c:when test="${! empty film}">
       <ul>
         <li>${film.title}</li>
@@ -18,6 +19,6 @@
     <c:otherwise>
       <p>No film found</p>
     </c:otherwise>
-  </c:choose>
+  </c:choose> --%>
 </body>
 </html>
