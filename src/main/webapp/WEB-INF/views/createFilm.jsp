@@ -6,46 +6,78 @@
 <head>
 <meta charset="UTF-8">
 <title>Add Film</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+	crossorigin="anonymous">
 </head>
-<body>
+<body style="color: #dddddd; background-color: #424242; margin: 10px;">
+<div style="border-style: solid; background-color: #292929; border-color: white; padding: 10px; text-align: center; box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 20px;">
+<h2 style="color: #FFC107"><strong>Create a Film</strong></h2>
+</div>
+<div style="margin-top: 20px; border-style: solid; background-color: #292929; border-color: white; padding: 10px; box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 20px;">
     <form action="createFilm.do" method="POST">
-      <br>
-      <label for="title">Title:</label>
+      <div style="margin-top: 10px;  background-color: #292929; border-color: white; padding: 10px; ">
+      <label for="title"><strong>Title:</strong></label>
       <input type="text" name="title" required>
-      <br>
-      <label for="description">Description:</label>
+      </div>
+      
+      <div style="margin-top: 10px; background-color: #292929; border-color: white; padding: 10px; ">
+      <label for="description"><strong>Description:</strong></label>
       <input type="text" name="description" required>
-      <br>
-      <label for="releaseYear">Release Year:</label>
+      </div>
+      
+      <div style="margin-top: 10px;  background-color: #292929; border-color: white; padding: 10px; ">
+      <label for="releaseYear"><strong>Release Year:</strong></label>
       <input type="text" name="releaseYear" required>
-      <br>
-      <label for="languageId">Language ID:</label>
+      </div>
+      
+      <div style="margin-top: 10px;  background-color: #292929; border-color: white; padding: 10px; ">
+      <label for="languageId"><strong>Language ID:</strong></label>
       <input type="text" name="languageId">
-      <br>
-      <label for="rentalDuration">Rental Duration:</label>
+      </div>
+      
+      <div style="margin-top: 10px;  background-color: #292929; border-color: white; padding: 10px; ">
+      <label for="rentalDuration"><strong>Rental Duration:</strong></label>
       <input type="text" name="rentalDuration" required>
-      <br>
-      <label for="rentalRate">Rental Rate:</label>
+      </div>
+      
+      <div style="margin-top: 10px;  background-color: #292929; border-color: white; padding: 10px; ">
+      <label for="rentalRate"><strong>Rental Rate:</strong></label>
       <input type="text" name="rentalRate" required>
-      <br>
-      <label for="length">Length:</label>
+      </div>
+      
+      <div style="margin-top: 10px;  background-color: #292929; border-color: white; padding: 10px; ">
+      <label for="length"><strong>Length:</strong></label>
       <input type="text" name="length" required>
-      <br>
-      <label for="replacementCost">Replacement Cost:</label>
+      </div>
+      
+      <div style="margin-top: 10px;  background-color: #292929; border-color: white; padding: 10px; ">
+      <label for="replacementCost"><strong>Replacement Cost:</strong></label>
       <input type="text" name="replacementCost" required>
-      <br>
-      <label for="rating">Rating:</label>
+      </div>
+      
+      <div style="margin-top: 10px;  background-color: #292929; border-color: white; padding: 10px; ">
+      <label for="rating"><strong>Rating:</strong></label>
       <input type="text" name="rating" required>
-      <br>
-      <label for="specialFeatures">Special Features:</label>
+      </div>
+      
+      <div style="margin-top: 10px;  background-color: #292929; border-color: white; padding: 10px; ">
+      <label for="specialFeatures"><strong>Special Features:</strong></label>
       <input type="text" name="specialFeatures" required>
-      <br>
-      <input type="submit">
-    </form>
-    <br>
+      </div>
+      
+      <div style="margin-top: 10px;  background-color: #292929; border-color: white; padding: 10px; ">
+	  <button style="margin-left: 10px; "type="submit" class="btn btn-outline-warning">Submit</button>    
+      </div>
+	  </form>
+</div>
+<div style="margin-top: 10px; border-style: solid; background-color: #292929; border-color: white; padding: 10px; box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 20px;">
  <form action="home.do" method="GET">
-	<button>Home</button>
+	<button style="margin-left: 10px; "type="submit" class="btn btn-outline-warning">Home</button>
 	</form>
+</div>
 </body>
 </html>
 

@@ -12,12 +12,14 @@
 	integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
 	crossorigin="anonymous">
 </head>
-<body style="color: #dddddd; background-color: #333333; margin: 10px;">
-	<div style="border-style: solid; border-color: white; padding: 10px; text-align: center;">
-		<h3 style="color: #FFC107"><strong>Welcome To Film Query</strong></h3>
+<body style="color: #dddddd; background-color: #424242; margin: 10px;">
+	<div style="border-style: solid; background-color: #292929; border-color: white; padding: 10px; text-align: center; box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 20px;">
+		<h2 style="color: #FFC107"><strong>Welcome To Film Query</strong></h2>
 	</div>
 	<br>
-	<div style="border-style: solid; border-color: white; padding: 10px;">
+	<div style="margin: 50px;"></div>
+	<br>
+	<div style="margin-top: 20px; border-style: solid; background-color: #292929; border-color: white; padding: 10px; box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 20px;">
 		<form action="findFilmById.do" method="GET">
 			<label for="film"><strong>Search Film ID:</strong></label> <input type="text"
 				id="filmID" name="filmID" required>
@@ -25,7 +27,7 @@
 		</form>
 	</div>
 	<br>
-	<div style="border-style: solid; border-color: white; padding: 10px;">
+	<div style="margin-top: 20px; border-style: solid; background-color: #292929; border-color: white; padding: 10px; box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 20px;">
 		<form action="findFilmBySearchWord.do" method="GET">
 			<label for="film"><strong>Search Films By Search Word:</strong></label> <input
 				type="text" id="searchWord" name="searchWord" required>
@@ -33,14 +35,14 @@
 		</form>
 	</div>
 	<br>
-	<div style="border-style: solid; border-color: white; padding: 10px;">
+	<div style="margin-top: 20px; border-style: solid; background-color: #292929; border-color: white; padding: 10px; box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 20px;">
 		<form action="createFilmPage.do">
 			<label for="film"><strong>Add a Film:</strong></label>
 			<button style="margin-left: 10px; "type="submit" class="btn btn-outline-warning">NEXT</button>
 		</form>
 	</div>
 	<br>
-	<div style="border-style: solid; border-color: white; padding: 10px;">
+	<div style="margin-top: 20px; border-style: solid; background-color: #292929; border-color: white; padding: 10px; box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 20px;">
 		<form action="deleteFilm.do" method="POST">
 			<label for="title"><strong>Enter the ID of the film you would like to delete:</strong></label> 
 				<input type="text" name="Id" required> 
