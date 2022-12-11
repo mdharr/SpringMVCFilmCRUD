@@ -17,22 +17,22 @@
       <input type="text" name="description" required>
       <br>
       <label for="release_year">Release Year:</label>
-      <input type="text" name="release_year" required>
+      <input type="number" name="release_year" required>
       <br>
       <label for="language_id">Language ID:</label>
-      <input type="text" name="language_id">
+      <input type="number" name="language_id">
       <br>
       <label for="rental_duration">Rental Duration:</label>
-      <input type="text" name="rental_duration" required>
+      <input type="number" name="rental_duration" required>
       <br>
       <label for="rental_rate">Rental Rate:</label>
-      <input type="text" name="rental_rate" required>
+      <input type="number" name="rental_rate" required>
       <br>
       <label for="length">Length:</label>
-      <input type="text" name="length" required>
+      <input type="number" name="length" required>
       <br>
       <label for="replacement_cost">Replacement Cost:</label>
-      <input type="text" name="replacement_cost" required>
+      <input type="number" name="replacement_cost" required>
       <br>
       <label for="rating">Rating:</label>
       <input type="text" name="rating" required>

@@ -25,25 +25,14 @@ public class FilmController {
 
 		return "WEB-INF/views/home.jsp";
 	}
-	
-	@RequestMapping
 
-<<<<<<< HEAD
 	@RequestMapping("createFilmPage.do")
 	public String createFilmPage() {
 
 		return "WEB-INF/views/createFilm.jsp";
 	}
-	
-	
 
-	//@RequestMapping(path = "searchFilmById.do",params = "ID", method = RequestMethod.GET)
-    @GetMapping(path = "findFilmById.do",params = "filmID")
-=======
-	// @RequestMapping(path = "searchFilmById.do",params = "ID", method =
-	// RequestMethod.GET)
 	@GetMapping(path = "findFilmById.do", params = "filmID")
->>>>>>> 28f01c3207dad0b426a579afc716c3137e4420ec
 	public ModelAndView findFilmById(Integer filmID) throws SQLException {
 		ModelAndView mv = new ModelAndView();
 		Film f = filmDao.findFilmById(filmID);
@@ -62,23 +51,25 @@ public class FilmController {
 
 		return mv;
 	}
+	  @RequestMapping(path = "createFilm.do", method = RequestMethod.POST)
+	    public ModelAndView createFilm(Film f) {
+	      ModelAndView mv = new ModelAndView();
+		  Film film = filmDao.createFilm(f);
+		  System.out.println(film);
+			mv.addObject("film", film);
+			mv.setViewName("WEB-INF/views/addedFilm.jsp");
+	    //  redir.addFlashAttribute("film", f);
+	      return mv;
+	    		  //"redirect:addedFilm.do";
+	    }
 
-//	@GetMapping(path = "createFilm.do", params = "createFilm")
-//	public ModelAndView createFilm(Film f) throws SQLException {
-//		ModelAndView mv = new ModelAndView();
-//		Film film = filmDao.createFilm(f);
-//		mv.addObject("film", film);
-//		mv.setViewName("WEB-INF/views/createFilm.jsp");
-//
-//		return mv;
+
+//	@RequestMapping(path = "createFilm.do", method = RequestMethod.POST)
+//	public String createFilm(Film f, RedirectAttributes redir) {
+//		filmDao.createFilm(f);
+//		redir.addFlashAttribute("film", f);
+//		return "redirect:addedFilm.do";
 //	}
-
-	@RequestMapping(path = "createFilm.do", method = RequestMethod.POST)
-	public String createFilm(Film f, RedirectAttributes redir) {
-		filmDao.createFilm(f);
-		redir.addFlashAttribute("film", f);
-		return "redirect:filmAdded.do";
-	}
 
 	@RequestMapping(path = "addedFilm.do", method = RequestMethod.GET)
 	public ModelAndView filmAdded() {
@@ -87,30 +78,5 @@ public class FilmController {
 		mv.setViewName("WEB-INF/views/addedFilm.jsp");
 		return mv;
 	}
-<<<<<<< HEAD
-    @GetMapping(path = "findFilmBySearchWord.do",params = "searchWord")
-   	public ModelAndView findFilmBySearchWord(String searchWord) throws SQLException {
-   	ModelAndView mv = new ModelAndView();
-   		List<Film> films = filmDao.findFilmsBySearchWord(searchWord);
-   		mv.addObject("film", films);
-   		mv.setViewName("WEB-INF/views/findFilmBySearchWord.jsp");
-   		
-           return mv;
-   	}
 
-    @RequestMapping(path = "createFilm.do", method = RequestMethod.POST)
-    public String createFilm(Film f, RedirectAttributes redir) {
-      filmDao.createFilm(f);
-      redir.addFlashAttribute("film", f);
-      return "redirect:addedFilm.do";
-    }
-      @RequestMapping("addedFilm.do")
-      public ModelAndView filmAdded() {
-        ModelAndView mv = new ModelAndView();
-      
-        mv.setViewName("WEB-INF/views/addedFilm.jsp");
-        return mv;
-}
-=======
->>>>>>> 28f01c3207dad0b426a579afc716c3137e4420ec
 }
