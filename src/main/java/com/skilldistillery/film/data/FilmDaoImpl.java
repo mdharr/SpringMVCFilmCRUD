@@ -235,6 +235,12 @@ public class FilmDaoImpl implements FilmDAO {
 			
 			stmt.executeUpdate();
 			
+			ResultSet rs = stmt.getGeneratedKeys();
+			if (rs.next()) {
+			    int id = rs.getInt(1);
+			    film.setId(id);
+			}
+			
 			conn.commit();
 			stmt.close();
 			conn.close();

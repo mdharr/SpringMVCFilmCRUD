@@ -10,5 +10,9 @@
  
  <context:component-scan base-package="com.skilldistillery.film"/>
  <mvc:annotation-driven/>
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> 28f01c3207dad0b426a579afc716c3137e4420ec
 </beans>
