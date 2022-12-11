@@ -212,11 +212,11 @@ public class FilmDaoImpl implements FilmDAO {
 		try {
 			conn = DriverManager.getConnection(URL, USER, PWD);
 			conn.setAutoCommit(false);
-			String sql = "INSERT INTO film (title, description, release_year, language_id, rental_duration, rental_rate, length, replacement_cost, rating, special_features) " 
-					   + " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-			
+			String sql = "INSERT INTO film (title, description, release_year, language_id, rental_duration, rental_rate, length, replacement_cost, rating, special_features) "
+					+ " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
 			PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-			
+
 			stmt.setString(1, film.getTitle());
 			stmt.setString(2, film.getDescription());
 			stmt.setInt(3, film.getReleaseYear());
@@ -227,29 +227,28 @@ public class FilmDaoImpl implements FilmDAO {
 			stmt.setDouble(8, film.getReplacementCost());
 			stmt.setString(9, film.getRating());
 			stmt.setString(10, film.getSpecialFeatures());
-			
+
 			int updateCount = stmt.executeUpdate();
-			 if(updateCount == 1) {
-				 ResultSet rs = stmt.getGeneratedKeys();
-				 
-				 if (rs.next()) {
-					 int id = rs.getInt(1);
-					 film.setId(id);			
-				        }
-				 rs.close();
-				      }
-				    
+			if (updateCount == 1) {
+				ResultSet rs = stmt.getGeneratedKeys();
 
-	conn.commit();
-	stmt.close();
-	conn.close();}
+				if (rs.next()) {
+					int id = rs.getInt(1);
+					film.setId(id);
+				}
+				rs.close();
+			}
 
-	catch(SQLException sqle)
-	{
+			conn.commit();
+			stmt.close();
+			conn.close();
+		}
+
+		catch (SQLException sqle) {
 			sqle.printStackTrace();
 		}
-	return film;
-	
+		return film;
+
 	}
 //	@Override
 //	public Film createFilm(Film film) {
@@ -291,7 +290,7 @@ public class FilmDaoImpl implements FilmDAO {
 //	}
 
 	@Override
-	public boolean updateFilm(Film film) {
+	public Film updateFilm(Film film, int filmId) throws SQLException {
 		Connection conn = null;
 		try {
 			conn = DriverManager.getConnection(URL, USER, PWD);
@@ -309,7 +308,23 @@ public class FilmDaoImpl implements FilmDAO {
 			stmt.setDouble(8, film.getReplacementCost());
 			stmt.setString(9, film.getRating());
 			stmt.setString(10, film.getSpecialFeatures());
+			stmt.setInt(11, filmId);
 			stmt.executeUpdate();
+
+			int upodatedFilmCount = stmt.executeUpdate();
+		
+			if (upodatedFilmCount == 1 ){
+				
+				conn.commit();
+				
+			}
+			
+			else {
+				return null;
+			}
+
+			stmt.close();
+			conn.close();
 
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();
@@ -321,9 +336,9 @@ public class FilmDaoImpl implements FilmDAO {
 					System.err.println("Error trying to rollback");
 				}
 			}
-			return false;
+			return null;
 		}
-		return true;
+		return film;
 	}
 
 	@Override
@@ -332,9 +347,9 @@ public class FilmDaoImpl implements FilmDAO {
 		try {
 			conn = DriverManager.getConnection(URL, USER, PWD);
 			conn.setAutoCommit(false);
-			
+
 			String sql = "DELETE FROM film WHERE id = ?";
-			
+
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setInt(1, film.getId());
 			int updateCount = stmt.executeUpdate();
@@ -344,10 +359,10 @@ public class FilmDaoImpl implements FilmDAO {
 			} else {
 				film = null;
 			}
-			
+
 			stmt.close();
 			conn.close();
-		
+
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();
 			if (conn != null) {

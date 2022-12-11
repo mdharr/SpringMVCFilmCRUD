@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.film.data.FilmDAO;
 import com.skilldistillery.film.entities.Film;
@@ -32,6 +33,20 @@ public class FilmController {
 		return "WEB-INF/views/createFilm.jsp";
 	}
 
+	@RequestMapping("addedFilm.do")
+	public String filmAdded() {
+
+		return "WEB-INF/views/addedFilm.jsp";
+
+	}
+
+	@RequestMapping("editFilmForm.do")
+	public String filmUpdate() {
+
+		return "WEB-INF/views/updateFilm.jsp";
+
+	}
+
 	@GetMapping(path = "findFilmById.do", params = "filmID")
 	public ModelAndView findFilmById(Integer filmID) throws SQLException {
 		ModelAndView mv = new ModelAndView();
@@ -51,38 +66,49 @@ public class FilmController {
 
 		return mv;
 	}
-	  @RequestMapping(path = "createFilm.do", method = RequestMethod.POST)
-	    public ModelAndView createFilm(Film f) {
-	      ModelAndView mv = new ModelAndView();
-		  Film film = filmDao.createFilm(f);
-		  System.out.println(film);
-			mv.addObject("film", film);
-			mv.setViewName("WEB-INF/views/addedFilm.jsp");
-	    //  redir.addFlashAttribute("film", f);
-	      return mv;
-	    		  //"redirect:addedFilm.do";
-	    }
 
-
-	@RequestMapping(path = "addedFilm.do", method = RequestMethod.GET)
-	public ModelAndView filmAdded() {
+	@RequestMapping(path = "createFilm.do", method = RequestMethod.POST)
+	public String createFilm(Film f, RedirectAttributes redir) {
 		ModelAndView mv = new ModelAndView();
-
+		Film film = filmDao.createFilm(f);
+		mv.addObject("film", film);
 		mv.setViewName("WEB-INF/views/addedFilm.jsp");
+		redir.addFlashAttribute("film", f);
+		return "redirect:addedFilm.do";
+
+	}
+
+	
+	@RequestMapping(path = "editFilmById.do", params = "filmId", method = RequestMethod.GET)
+	public ModelAndView editFilmById(int filmId) throws SQLException {
+		ModelAndView mv = new ModelAndView();
+		Film f = filmDao.findFilmById(filmId);
+		mv.addObject("film", f);
+		
+		mv.setViewName("WEB-INF/views/updateFilm.jsp");
 		return mv;
 	}
 
-
-
+	@RequestMapping(path = "updateFilm.do", method = RequestMethod.POST)
+	public ModelAndView editFilm(Film film,int filmId) throws SQLException {
+		
+		ModelAndView mv = new ModelAndView();
+		
+		filmDao.updateFilm(film, filmId);
+		
+		mv.setViewName("WEB-INF/views/home.jsp");
+		return mv;
+	}
 	
 	
+
 	@RequestMapping(path = "deleteFilm.do", method = RequestMethod.POST)
 	public ModelAndView deleteFilm(Film film) {
 		ModelAndView mv = new ModelAndView();
 		if (film.getId() <= 1000) {
 			film = null;
 		} else {
-			filmDao.deleteFilm(film);	
+			filmDao.deleteFilm(film);
 		}
 		mv.addObject("film", film);
 		mv.setViewName("WEB-INF/views/deleteFilm.jsp");
@@ -90,5 +116,4 @@ public class FilmController {
 
 	}
 
-	
 }
