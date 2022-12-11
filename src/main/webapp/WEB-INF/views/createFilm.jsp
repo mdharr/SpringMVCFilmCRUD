@@ -17,22 +17,22 @@
       <input type="text" name="description" required>
       <br>
       <label for="releaseYear">Release Year:</label>
-      <input type="number" name="releaseYear" required>
+      <input type="text" name="releaseYear" required>
       <br>
       <label for="languageId">Language ID:</label>
-      <input type="number" name="languageId">
+      <input type="text" name="languageId">
       <br>
       <label for="rentalDuration">Rental Duration:</label>
-      <input type="number" name="rentalDuration" required>
+      <input type="text" name="rentalDuration" required>
       <br>
       <label for="rentalRate">Rental Rate:</label>
-      <input type="number" name="rentalRate" required>
+      <input type="text" name="rentalRate" required>
       <br>
       <label for="length">Length:</label>
-      <input type="number" name="length" required>
+      <input type="text" name="length" required>
       <br>
       <label for="replacementCost">Replacement Cost:</label>
-      <input type="number" name="replacementCost" required>
+      <input type="text" name="replacementCost" required>
       <br>
       <label for="rating">Rating:</label>
       <input type="text" name="rating" required>
@@ -42,7 +42,9 @@
       <br>
       <input type="submit">
     </form>
-
+ <form action="home.do" method="GET">
+	<button>Home</button>
+	</form>
 </body>
 </html>
 

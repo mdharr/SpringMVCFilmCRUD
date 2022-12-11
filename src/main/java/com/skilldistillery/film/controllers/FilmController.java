@@ -5,11 +5,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.film.data.FilmDAO;
 import com.skilldistillery.film.entities.Film;
@@ -64,13 +64,6 @@ public class FilmController {
 	    }
 
 
-//	@RequestMapping(path = "createFilm.do", method = RequestMethod.POST)
-//	public String createFilm(Film f, RedirectAttributes redir) {
-//		filmDao.createFilm(f);
-//		redir.addFlashAttribute("film", f);
-//		return "redirect:addedFilm.do";
-//	}
-
 	@RequestMapping(path = "addedFilm.do", method = RequestMethod.GET)
 	public ModelAndView filmAdded() {
 		ModelAndView mv = new ModelAndView();
@@ -79,4 +72,23 @@ public class FilmController {
 		return mv;
 	}
 
+
+
+	
+	
+	@RequestMapping(path = "deleteFilm.do", method = RequestMethod.POST)
+	public ModelAndView deleteFilm(Film film) {
+		ModelAndView mv = new ModelAndView();
+		if (film.getId() <= 1000) {
+			film = null;
+		} else {
+			filmDao.deleteFilm(film);	
+		}
+		mv.addObject("film", film);
+		mv.setViewName("WEB-INF/views/deleteFilm.jsp");
+		return mv;
+
+	}
+
+	
 }

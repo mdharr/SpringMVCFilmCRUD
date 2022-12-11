@@ -20,5 +20,10 @@
       <p>No film found</p>
     </c:otherwise>
   </c:choose> --%>
+
+ <form action="home.do" method="GET">
+	<button>Home</button>
+	</form>
+
 </body>
 </html>
