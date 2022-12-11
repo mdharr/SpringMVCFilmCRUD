@@ -9,5 +9,9 @@
 </head>
 <body>
 <h1>Film Deleted</h1>
+<br>
+ <form action="home.do" method="GET">
+	<button>Home</button>
+	</form>
 </body>
 </html>
