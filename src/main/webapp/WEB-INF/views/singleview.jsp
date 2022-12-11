@@ -13,9 +13,17 @@
 
 			<h2>Results:</h2>
 			<ul>
-				<li> Film's Id: ${film.id}</li>
-				<li>${film.title}</li>
-				<li>${film.description}</li>
+				<li>Film ID: ${film.id } </li>
+        <li>Film Title: ${film.title}</li>
+        <li>Film Description: ${film.description}</li>
+        <li>Film Release Year: ${film.releaseYear}</li>
+        <li>Film Language ID: ${film.languageId}</li>
+        <li>Film Rental Duration: ${film.rentalDuration}</li>
+        <li>Film Rental Rate: ${film.rentalRate}</li>
+        <li>Film Length: ${film.length}</li>
+        <li>Film Replacement Cost: ${film.replacementCost}</li>
+        <li>Film Rating: ${film.rating}</li>
+        <li>Film Special Features: ${film.specialFeatures}</li>
 			</ul>
 		</c:when>
 		<c:otherwise>
@@ -28,8 +36,8 @@
 			Film</button>
 	</form>
 
-	<form action="home.do" method="GET">
-		<button>Home</button>
+ <form action="home.do" method="GET">
+	<button>Home</button>
 	</form>
 </body>
 </html>
