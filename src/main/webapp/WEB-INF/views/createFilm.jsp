@@ -16,29 +16,29 @@
       <label for="description">Description:</label>
       <input type="text" name="description" required>
       <br>
-      <label for="release_year">Release Year:</label>
-      <input type="number" name="release_year" required>
+      <label for="releaseYear">Release Year:</label>
+      <input type="number" name="releaseYear" required>
       <br>
-      <label for="language_id">Language ID:</label>
-      <input type="number" name="language_id">
+      <label for="languageId">Language ID:</label>
+      <input type="number" name="languageId">
       <br>
-      <label for="rental_duration">Rental Duration:</label>
-      <input type="number" name="rental_duration" required>
+      <label for="rentalDuration">Rental Duration:</label>
+      <input type="number" name="rentalDuration" required>
       <br>
-      <label for="rental_rate">Rental Rate:</label>
-      <input type="number" name="rental_rate" required>
+      <label for="rentalRate">Rental Rate:</label>
+      <input type="number" name="rentalRate" required>
       <br>
       <label for="length">Length:</label>
       <input type="number" name="length" required>
       <br>
-      <label for="replacement_cost">Replacement Cost:</label>
-      <input type="number" name="replacement_cost" required>
+      <label for="replacementCost">Replacement Cost:</label>
+      <input type="number" name="replacementCost" required>
       <br>
       <label for="rating">Rating:</label>
       <input type="text" name="rating" required>
       <br>
-      <label for="special_features">Special Features:</label>
-      <input type="text" name="special_features" required>
+      <label for="specialFeatures">Special Features:</label>
+      <input type="text" name="specialFeatures" required>
       <br>
       <input type="submit">
     </form>
