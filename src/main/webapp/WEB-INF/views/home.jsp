@@ -16,7 +16,7 @@
 <body>
 	<form action="findFilmById.do" method="GET">
 		<label for="film">Search Film ID:</label> <input type="text"
-			id="filmID" name="filmID">
+			id="filmID" name="filmID" required>
 		<button>Submit</button>
 	</form>
 
@@ -27,7 +27,7 @@
 
 	<form action="findFilmBySearchWord.do" method="GET">
 		<label for="film">Search Films By Search Word:</label> <input
-			type="text" id="searchWord" name="searchWord">
+			type="text" id="searchWord" name="searchWord" required>
 		<button>Submit</button>
 	</form>
 
