@@ -42,6 +42,7 @@
       <br>
       <input type="submit">
     </form>
+    <br>
  <form action="home.do" method="GET">
 	<button>Home</button>
 	</form>
