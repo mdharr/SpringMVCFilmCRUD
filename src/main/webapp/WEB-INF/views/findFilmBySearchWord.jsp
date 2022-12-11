@@ -32,10 +32,12 @@
 					<li>Film Replacement Cost: ${film.replacementCost}</li>
 					<li>Film Rating: ${film.rating}</li>
 					<li>Film Special Features: ${film.specialFeatures}</li>
-
-					<br>
-
-
+ 					<li>Film Cast:</li>
+       				 <ol>
+						<c:forEach var="actor" items="${filmActorMap[film]}">
+						<li>${actor.firstName } ${actor.lastName }</li>
+						</c:forEach>
+       				 </ol>
 				</c:forEach>
 			</ul>
 		</c:when>

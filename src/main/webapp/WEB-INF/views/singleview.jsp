@@ -22,17 +22,24 @@
 
 			<h2>Results:</h2>
 			<ul>
-				<li>Film ID: ${film.id } </li>
-        <li>Film Title: ${film.title}</li>
-        <li>Film Description: ${film.description}</li>
-        <li>Film Release Year: ${film.releaseYear}</li>
-        <li>Film Language ID: ${film.languageId}</li>
-        <li>Film Rental Duration: ${film.rentalDuration}</li>
-        <li>Film Rental Rate: ${film.rentalRate}</li>
-        <li>Film Length: ${film.length}</li>
-        <li>Film Replacement Cost: ${film.replacementCost}</li>
-        <li>Film Rating: ${film.rating}</li>
-        <li>Film Special Features: ${film.specialFeatures}</li>
+				 <li>Film ID: ${film.id } </li>
+       			 <li>Film Title: ${film.title}</li>
+       			 <li>Film Description: ${film.description}</li>
+       			 <li>Film Release Year: ${film.releaseYear}</li>
+       			 <li>Film Language ID: ${film.languageId}</li>
+       			 <li>Film Rental Duration: ${film.rentalDuration}</li>
+       			 <li>Film Rental Rate: ${film.rentalRate}</li>
+       			 <li>Film Length: ${film.length}</li>
+       			 <li>Film Replacement Cost: ${film.replacementCost}</li>
+       			 <li>Film Rating: ${film.rating}</li>
+       			 <li>Film Special Features: ${film.specialFeatures}</li>
+       			 <li>Film Cast:</li>
+       			 <ol>
+				<c:forEach var="actor" items="${actor}">
+					<li>${actor.firstName } ${actor.lastName }</li>
+				</c:forEach>
+				</ol>
+			
 			</ul>
 		</c:when>
 		<c:otherwise>
