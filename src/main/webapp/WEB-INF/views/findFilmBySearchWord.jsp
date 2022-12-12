@@ -39,7 +39,7 @@
 						<li>${actor.firstName } ${actor.lastName }</li>
 						</c:forEach>
        				 </ol>
-       				 <hr>
+       				 <hr style="border: 1px solid #F8C471; ">
        				 <br>
 				</c:forEach>
 			</ul>
