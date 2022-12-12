@@ -6,12 +6,20 @@
 <head>
 <meta charset="UTF-8">
 <title>Added Film</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+	crossorigin="anonymous">
 </head>
-<body>
-<h2>Successfully added film</h2>
+<body style="color: #dddddd; background-color: #424242; margin: 10px;">
+<div style="border-style: solid; background-color: #292929; border-color: white; padding: 10px; text-align: center; box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 20px;">
+<h2 style="color: #FFC107"><strong>Film Added</strong></h2>
+</div>
+<div style="margin-top: 20px; border-style: solid; background-color: #292929; border-color: white; padding: 10px; box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 20px;">
  <c:choose>
     <c:when test="${! empty film}">
-      <ul>
+      <ul style="list-style-type: square;">
       	<li>Film ID: ${film.id } </li>
         <li>Film Title: ${film.title}</li>
         <li>Film Description: ${film.description}</li>
@@ -30,10 +38,12 @@
       <p>No film found</p>
     </c:otherwise>
   </c:choose>
-
+</div>
+<div style="margin-top: 20px; border-style: solid; background-color: #292929; border-color: white; padding: 10px; box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 20px;">
  <form action="home.do" method="GET">
-	<button>Home</button>
+	<button style="margin-left: 10px; "type="submit" class="btn btn-outline-warning">Home</button>
 	</form>
+</div>
 
 </body>
 </html>

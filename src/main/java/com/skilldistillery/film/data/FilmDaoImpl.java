@@ -60,7 +60,6 @@ public class FilmDaoImpl implements FilmDAO {
 			film.setReplacementCost(filmResult.getDouble("replacement_cost"));
 			film.setRating(filmResult.getString("rating"));
 			film.setSpecialFeatures(filmResult.getString("special_features"));
-			
 
 		}
 		stmt.close();
@@ -74,7 +73,6 @@ public class FilmDaoImpl implements FilmDAO {
 
 		Actor actor = null;
 
-		// ...
 		String sql = "SELECT actor.id, actor.first_name, actor.last_name FROM actor WHERE id = ?";
 
 		Connection conn = DriverManager.getConnection(URL, USER, PWD);
@@ -85,16 +83,13 @@ public class FilmDaoImpl implements FilmDAO {
 		ResultSet actorResult = stmt.executeQuery();
 
 		if (actorResult.next()) {
-			actor = new Actor(); // create the object
+			actor = new Actor(); 
 
-			// here is our mapping of query columns to our object fields:
 			actor.setId(actorResult.getInt("id"));
 			actor.setFirstName(actorResult.getString("first_name"));
 			actor.setLastName(actorResult.getString("last_name"));
 
-//			actor.setFilms(findFilmsByActorId(actorId)); // An Actor has Films
 		}
-		// ... conn.close();
 		stmt.close();
 		conn.close();
 
@@ -106,7 +101,6 @@ public class FilmDaoImpl implements FilmDAO {
 
 		List<Actor> actors = new ArrayList<>();
 
-		// ...
 		String sql = "SELECT actor.id, actor.first_name, actor.last_name FROM film JOIN film_actor ON film.id = film_actor.film_id JOIN actor ON actor.id = film_actor.actor_id WHERE film.id = ?";
 
 		Connection conn = DriverManager.getConnection(URL, USER, PWD);
@@ -160,7 +154,6 @@ public class FilmDaoImpl implements FilmDAO {
 			film.setRating(filmResult.getString("film.rating"));
 			film.setSpecialFeatures(filmResult.getString("film.special_features"));
 
-			// Assuming you have a user object
 
 			films.add(film);
 
@@ -172,34 +165,34 @@ public class FilmDaoImpl implements FilmDAO {
 		return films;
 	}
 
-	@Override
-	public Category findCategoriesByFilmId(int filmId) throws SQLException {
-		Category category = null;
-
-		// ...
-		String sql = "select category.id, category.name from category join film_category on category.id = category_id join film on film.id = film_id where film.id = ?";
-
-		Connection conn = DriverManager.getConnection(URL, USER, PWD);
-
-		PreparedStatement stmt = conn.prepareStatement(sql);
-		stmt.setInt(1, filmId);
-
-		ResultSet categoryResult = stmt.executeQuery();
-
-		if (categoryResult.next()) {
-			category = new Category(); // create the object
-
-			// here is our mapping of query columns to our object fields:
-			category.setId(categoryResult.getInt("category.id"));
-			category.setName(categoryResult.getString("category.name"));
-
-		}
-		// ... conn.close();
-		stmt.close();
-		conn.close();
-
-		return category;
-	}
+//	@Override
+//	public Category findCategoriesByFilmId(int filmId) throws SQLException {
+//		Category category = null;
+//
+//		// ...
+//		String sql = "select category.id, category.name from category join film_category on category.id = category_id join film on film.id = film_id where film.id = ?";
+//
+//		Connection conn = DriverManager.getConnection(URL, USER, PWD);
+//
+//		PreparedStatement stmt = conn.prepareStatement(sql);
+//		stmt.setInt(1, filmId);
+//
+//		ResultSet categoryResult = stmt.executeQuery();
+//
+//		if (categoryResult.next()) {
+//			category = new Category(); // create the object
+//
+//			// here is our mapping of query columns to our object fields:
+//			category.setId(categoryResult.getInt("category.id"));
+//			category.setName(categoryResult.getString("category.name"));
+//
+//		}
+//		// ... conn.close();
+//		stmt.close();
+//		conn.close();
+//
+//		return category;
+//	}
 
 	@Override
 	public List<Film> findFilmsByActorId() {
