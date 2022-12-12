@@ -60,6 +60,7 @@ public class FilmDaoImpl implements FilmDAO {
 			film.setReplacementCost(filmResult.getDouble("replacement_cost"));
 			film.setRating(filmResult.getString("rating"));
 			film.setSpecialFeatures(filmResult.getString("special_features"));
+			
 
 		}
 		stmt.close();
@@ -171,34 +172,34 @@ public class FilmDaoImpl implements FilmDAO {
 		return films;
 	}
 
-//	@Override
-//	public Category findCategoriesByFilmId(int filmId) throws SQLException {
-//		Category category = null;
-//
-//		// ...
-//		String sql = "select category.id, category.name from category join film_category on category.id = category_id join film on film.id = film_id where film.id = ?";
-//
-//		Connection conn = DriverManager.getConnection(URL, USER, PWD);
-//
-//		PreparedStatement stmt = conn.prepareStatement(sql);
-//		stmt.setInt(1, filmId);
-//
-//		ResultSet categoryResult = stmt.executeQuery();
-//
-//		if (categoryResult.next()) {
-//			category = new Category(); // create the object
-//
-//			// here is our mapping of query columns to our object fields:
-//			category.setId(categoryResult.getInt("category.id"));
-//			category.setName(categoryResult.getString("category.name"));
-//
-//		}
-//		// ... conn.close();
-//		stmt.close();
-//		conn.close();
-//
-//		return category;
-//	}
+	@Override
+	public Category findCategoriesByFilmId(int filmId) throws SQLException {
+		Category category = null;
+
+		// ...
+		String sql = "select category.id, category.name from category join film_category on category.id = category_id join film on film.id = film_id where film.id = ?";
+
+		Connection conn = DriverManager.getConnection(URL, USER, PWD);
+
+		PreparedStatement stmt = conn.prepareStatement(sql);
+		stmt.setInt(1, filmId);
+
+		ResultSet categoryResult = stmt.executeQuery();
+
+		if (categoryResult.next()) {
+			category = new Category(); // create the object
+
+			// here is our mapping of query columns to our object fields:
+			category.setId(categoryResult.getInt("category.id"));
+			category.setName(categoryResult.getString("category.name"));
+
+		}
+		// ... conn.close();
+		stmt.close();
+		conn.close();
+
+		return category;
+	}
 
 	@Override
 	public List<Film> findFilmsByActorId() {

@@ -17,7 +17,7 @@
    	<input id="filmId" type="hidden" name="filmId" value="${film.id}"> 
       <br>
       <label for="title">Title:</label>
-      <input type="text" name="title" placeholder="${film.title}" required>
+      <input type="text" name="title" placeholder="${film.title}" value="${film.title}" required>
       <br>
       <label for="description">Description:</label>
       <input type="text" name="description" placeholder="${film.description}" required>
