@@ -8,7 +8,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale.Category;
 
 import org.springframework.stereotype.Component;
 
@@ -46,9 +45,8 @@ public class FilmDaoImpl implements FilmDAO {
 		ResultSet filmResult = stmt.executeQuery();
 
 		if (filmResult.next()) {
-			film = new Film(); // create the object
+			film = new Film();
 
-			// here is our mapping of query columns to our object fields:
 			film.setId(filmResult.getInt("id"));
 			film.setTitle(filmResult.getString("title"));
 			film.setDescription(filmResult.getString("description"));
@@ -165,35 +163,6 @@ public class FilmDaoImpl implements FilmDAO {
 		return films;
 	}
 
-//	@Override
-//	public Category findCategoriesByFilmId(int filmId) throws SQLException {
-//		Category category = null;
-//
-//		// ...
-//		String sql = "select category.id, category.name from category join film_category on category.id = category_id join film on film.id = film_id where film.id = ?";
-//
-//		Connection conn = DriverManager.getConnection(URL, USER, PWD);
-//
-//		PreparedStatement stmt = conn.prepareStatement(sql);
-//		stmt.setInt(1, filmId);
-//
-//		ResultSet categoryResult = stmt.executeQuery();
-//
-//		if (categoryResult.next()) {
-//			category = new Category(); // create the object
-//
-//			// here is our mapping of query columns to our object fields:
-//			category.setId(categoryResult.getInt("category.id"));
-//			category.setName(categoryResult.getString("category.name"));
-//
-//		}
-//		// ... conn.close();
-//		stmt.close();
-//		conn.close();
-//
-//		return category;
-//	}
-
 	@Override
 	public List<Film> findFilmsByActorId() {
 		// TODO Auto-generated method stub
@@ -244,44 +213,6 @@ public class FilmDaoImpl implements FilmDAO {
 		return film;
 
 	}
-//	@Override
-//	public Film createFilm(Film film) {
-//		Connection conn = null;
-//		try {
-//			conn = DriverManager.getConnection(URL, USER, PWD);
-//			conn.setAutoCommit(false);
-//			String sql = "INSERT INTO film (title, description, release_year, language_id, rental_duration, rental_rate, length, replacement_cost, rating, special_features) " 
-//					   + " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-//			
-//			PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-//			
-//			stmt.setString(1, film.getTitle());
-//			stmt.setString(2, film.getDescription());
-//			stmt.setInt(3, film.getReleaseYear());
-//			stmt.setInt(4, film.getLanguageId());
-//			stmt.setInt(5, film.getRentalDuration());
-//			stmt.setDouble(6, film.getRentalRate());
-//			stmt.setInt(7, film.getLength());
-//			stmt.setDouble(8, film.getReplacementCost());
-//			stmt.setString(9, film.getSpecialFeatures());
-//			stmt.setString(10, film.getSpecialFeatures());
-//			
-//			stmt.executeUpdate();
-//			
-//			ResultSet rs = stmt.getGeneratedKeys();
-//			if (rs.next()) {
-//			    int id = rs.getInt(1);
-//			    film.setId(id);
-//			}
-//			
-//			conn.commit();
-//			stmt.close();
-//			conn.close();
-//		} catch (SQLException sqle) {
-//			sqle.printStackTrace();
-//		}
-//		return film;
-//	}
 
 	@Override
 	public Film updateFilm(Film film, int filmId) throws SQLException {
