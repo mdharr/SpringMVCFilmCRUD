@@ -39,6 +39,7 @@
 						<li>${actor.firstName } ${actor.lastName }</li>
 						</c:forEach>
        				 </ol>
+       				 <hr>
        				 <br>
 				</c:forEach>
 			</ul>
