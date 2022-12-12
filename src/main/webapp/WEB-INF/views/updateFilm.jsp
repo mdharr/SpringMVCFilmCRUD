@@ -34,10 +34,41 @@
     	<label for="releaseYear">Release Year:</label>
     	<input type="text" name="releaseYear" value="${film.releaseYear}" required>
     </div>
-	<div style="margin-top: 10px;  background-color: #292929; border-color: white; padding: 10px; ">
-    	<label for="languageId">Language ID:</label>
-        <input type="text" name="languageId" value="${film.languageId}" required>
+    
+    <div style="margin-left: 10px; margin-top: 10px; margin-bottom: 10px; max-width: 200px; border-style: solid; padding: 15px;">
+	<h6><strong>Language:</strong></h6>
+    <div>
+      <input type="radio" id="1" name="languageId" value="1"
+             checked>
+      <label for="languageId">English</label>
     </div>
+
+    <div>
+      <input type="radio" id="2" name="languageId" value="2">
+      <label for="languageId">Italian</label>
+    </div>
+
+    <div>
+      <input type="radio" id="3" name="languageId" value="3">
+      <label for="languageId">Japanese</label>
+    </div>
+        <div>
+      <input type="radio" id="4" name="languageId" value="4"
+             checked>
+      <label for="languageId">Mandarin</label>
+    </div>
+        <div>
+      <input type="radio" id="5" name="languageId" value="5"
+             checked>
+      <label for="languageId">French</label>
+    </div>
+        <div>
+      <input type="radio" id="6" name="languageId" value="6"
+             checked>
+      <label for="languageId">German</label>
+    </div>
+      </div>
+    
 	<div style="margin-top: 10px;  background-color: #292929; border-color: white; padding: 10px; ">
         <label for="rentalDuration">Rental Duration:</label>
         <input type="text" name="rentalDuration" value="${film.rentalDuration}" required>
